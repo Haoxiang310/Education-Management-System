@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ems902.Dao.UserDao">
+
+
+    <!--根据学生id查找学生-->
+    <select id="selectStuById" resultType="com.ems902.Entity.Student" parameterType="int">
+        SELECT * FROM ems_db.student WHERE sId=#{sId}
+    </select>
+
+    <!--根据教师id查找教师-->
+    <select id="selectTeaById" resultType="com.ems902.Entity.Teacher" parameterType="int">
+        SELECT * FROM ems_db.teacher WHERE tId=#{tId}
+    </select>
+
+    <!--更新学生密码-->
+    <update id="updateStuPwd" parameterType="com.ems902.Entity.Student">
+        UPDATE ems_db.student SET
+            sPwd=#{sPwd}
+        WHERE sId=#{sId}
+    </update>
+
+    <!--显示所有勘误信息-->
+    <select id="queryAllScoreCheck" parameterType="int" resultType="com.ems902.Entity.ScoreCheck">
+        select * from ems_db.`score-check`
+        where tId=#{tId};
+    </select>
+
+    <select id="getAllScoreCheck" resultType="com.ems902.Entity.ScoreCheck">
+        select * from ems_db.`score-check` where adminCheck=0
+    </select>
+
+
+    <!--判断是否选课-->
+    <select id="queryIfChosen" parameterType="map" resultType="com.ems902.Entity.StuCourse">
+        select *from ems_db.`course-student`
+        where cId=#{cId} and sId=#{sId}
+    </select>
+
+    <!--更新教师密码-->
+    <update id="updateTeaPwd" parameterType="com.ems902.Entity.Teacher">
+        UPDATE ems_db.teacher SET
+            tPwd=#{tPwd}
+        WHERE tId=#{tId}
+    </update>
+
+    <!--查找所有学生的信息-->
+    <select id="queryAllStudent" resultType="com.ems902.Entity.Student">
+        select * from ems_db.student
+    </select>
+
+    <select id="queryStudentBySSchool" parameterType="java.lang.String" resultType="com.ems902.Entity.Student">
+        select * from ems_db.student where sSchool  = #{sSchool}
+    </select>
+
+    <!--查找所有教师的信息-->
+    <select id="queryAllTeacher" resultType="com.ems902.Entity.Teacher">
+        SELECT * FROM ems_db.teacher
+    </select>
+
+    <!--添加学生信息-->
+    <insert id="insertStu" parameterType="com.ems902.Entity.Student">
+        insert into ems_db.student(sId, grade, class_, sSchool, major, reCredit, gainCredit, sPwd, name) VALUES (#{sId},#{grade},#{class_},#{sSchool},#{major},#{reCredit},#{gainCredit},#{sPwd},#{name});
+
+     </insert>
+
+    <!--查找课程成绩-->
+    <select id="checkGrade" parameterType="map" resultType="int">
+        select grade
+        from ems_db.`course-student`
+        where cId=#{cId} and  sId=#{sId};
+    </select>
+
+    <!--添加教师信息-->
+    <insert id="insertTea" parameterType="com.ems902.Entity.Teacher">
+        insert into ems_db.teacher(tId, Ins, tPwd, tName) values (#{tId},#{Ins},#{tPwd},#{tName});
+    </insert>
+
+    <!--根据学生id查找学生课程-->
+    <select id="selectCourseIdByStuId" parameterType="int" resultType="com.ems902.Entity.StuCourse">
+        select *
+        from ems_db.`course-student`
+        where sId=#{id};
+    </select>
+
+
+
+    <!--根据课程id查找课程信息-->
+    <select id="selectCourseInfoById" parameterType="int" resultType="com.ems902.Entity.Course">
+        select *
+        from ems_db.course
+        where cId=#{cId};
+    </select>
+
+    <!--通过课程id获取课程信息-->
+    <select id="getCourseById" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where cId = #{cId}
+    </select>
+
+    
+    <select id="getCourseByMajor" parameterType="java.lang.String" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where major=#{major};
+    </select>
+    <!--根据教师id查找教师课程-->
+    <select id="selectCourseIdByTeaId" parameterType="int" resultType="com.ems902.Entity.TeaCourse">
+        select *
+        from ems_db.`course-teacher`
+        where tId=#{tId};
+    </select>
+
+    <!--查询所有课程-->
+    <select id="queryAllCourses" resultType="com.ems902.Entity.Course">
+        select *from ems_db.course;
+    </select>
+
+    <!--根据课程id查找教师信息-->
+    <select id="selectTeaIdByCourseId" parameterType="int" resultType="com.ems902.Entity.TeaCourse">
+        select *
+        from ems_db.`course-teacher`
+        where cId=#{cId};
+    </select>
+    <!--向学生选课表添加选课信息-->
+    <insert id="addCourse" parameterType="com.ems902.Entity.StuCourse">
+        insert into ems_db.`course-student`(cId, sId) VALUES (#{cId},#{sId});
+    </insert>
+
+    <!--学生选课表删除选课信息-->
+    <delete id="deleteCourse" parameterType="com.ems902.Entity.StuCourse">
+        delete from ems_db.`course-student`
+        where (cId, sId)= (#{cId},#{sId});
+    </delete>
+
+    <!--根据课程id查看对应课程的学生id-->
+    <select id="selectStuIdByCourseId" parameterType="int" resultType="com.ems902.Entity.StuCourse">
+        select*
+        from ems_db.`course-student`
+        where cId=#{cId};
+    </select>
+
+    <select id="selectStuCourseByCourseId" parameterType="int" resultType="com.ems902.Entity.StuCourse">
+        select * from ems_db.`course-student` where  cId = #{cId}
+    </select>
+
+    <select id="selectStuCourseByStuId" parameterType="int" resultType="com.ems902.Entity.StuCourse">
+        select * from ems_db.`course-student` where sId = #{sId}
+    </select>
+
+
+    <!--向课程表中添加课程-->
+    <insert id="addCourseIntoCourse" parameterType="com.ems902.Entity.Course">
+        insert into ems_db.course(cId,cName,grade,class_,major,semester,credit,place,day,time,startWeek,endWeek)
+        values (#{cId},#{cName},#{grade},#{class_},#{major},#{semester},#{credit},#{place},#{day},#{time},#{startWeek},#{endWeek})
+    </insert>
+
+    <!--更新课程中的课程信息-->
+    <update id="updateCourseIntoCourse" parameterType="com.ems902.Entity.Course">
+        update ems_db.course set cName = #{cName}, cType = #{cType},
+            grade = #{grade},class_ = #{class_},major = #{major},semester = #{semester},credit = #{credit},
+            place = #{place},day = #{day},time = #{time},startweek = #{startweek},endweek = #{endweek}
+        where cId = #{cId}
+    </update>
+
+    <!--删除课程中的课程-->
+    <delete id="deleteCourseFromCourse" parameterType="com.ems902.Entity.Course">
+        delete FROM ems_db.course where cId = #{cId}
+    </delete>
+
+    <!--通过课程名获取课程信息-->
+    <select id="getCourseByName" parameterType="java.lang.String" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where cName = #{cName}
+    </select>
+
+    <!--通过day字段获取课程信息-->
+    <select id="getCourseByDay" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where day = #{day}
+    </select>
+
+    <!--通过学期字段获取课程信息-->
+    <select id="getCourseBySemester" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where semester = #{semester}
+    </select>
+
+    <!--通过节次信息获取课程信息-->
+    <select id="getCourseByTime" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where time = #{time}
+    </select>
+
+    <!--通过起始周获取课程信息-->
+    <select id="getCourseByStartWeek" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where startWeek = #{startWeek}
+    </select>
+
+    <!--通过结束周获取课程信息-->
+    <select id="getCourseByEndWeek" parameterType="int" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where endWeek = #{endWeek}
+    </select>
+
+    <!--通过上课地点获取课程信息-->
+    <select id="getCourseByPlace" parameterType="java.lang.String" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where place = #{place}
+    </select>
+
+    <!--通过map类型的数据对课程进行筛选-->
+    <select id="getCourseByMultiLimit" parameterType="map" resultType="com.ems902.Entity.Course">
+        select * from ems_db.course where day = #{day} and time = #{time} and place = #{place}
+    </select>
+
+    <!--更新学生成绩-->
+    <update id="updateGrade" parameterType="com.ems902.Entity.StuCourse" >
+        update ems_db.`course-student` set
+        grade = #{grade},usual_grade = #{usual_grade},final_grade = #{final_grade}
+        where cId=#{cId} and sId = #{sId}
+    </update>
+
+    <select id="queryStuScore" parameterType="com.ems902.Entity.StuCourse" resultType="com.ems902.Entity.StuCourse">
+        select*
+        from ems_db.`course-student`
+        where sId=#{sId} and cId=#{cId};
+    </select>
+    <!--教师查看单门课程成绩勘误信息-->
+    <select id="TeaScoreCheck" parameterType="map" resultType="com.ems902.Entity.ScoreCheck">
+        select *from ems_db.`score-check`
+        where cId=#{cId} and tId=#{tId};
+    </select>
+    <!--添加成绩勘误信息-->
+    <insert id="ScoreCheck" parameterType="com.ems902.Entity.ScoreCheck">
+        insert into ems_db.`score-check`(sId, tId, cId, old_score, new_score, old_usual_score,
+                                         old_final_score,new_usual_score,new_final_score,changeReason,adminCheck) VALUES
+        (#{sId},#{tId},#{cId},#{old_score},#{new_score},#{old_usual_score},#{old_final_score},
+         #{new_usual_score},#{new_final_score},#{changeReason},#{adminCheck})
+    </insert>
+
+    <update id="updateAdminCheck" parameterType="com.ems902.Entity.ScoreCheck">
+        update ems_db.`score-check` set adminCheck = #{adminCheck} where sId = #{sId}
+    </update>
+
+    <select id="selectScoreCheckById" parameterType="int" resultType="com.ems902.Entity.ScoreCheck">
+        select * from ems_db.`score-check` where checkId = #{checkId}
+    </select>
+
+    <select id="selectAllScoreCheck" resultType="com.ems902.Entity.ScoreCheck">
+        select * from ems_db.`score-check`
+    </select>
+
+<!--    <select id="queryAllScoreCheck" parameterType="int" resultType="com.ems902.Entity.ScoreCheck">
+        select * from ems_db.`score-check` where tId = #{tId}
+    </select>-->
+
+
+    <!--获取课程成绩-->
+
+
+
+    <!--添加调课停课申请-->
+    <insert id="insertCourseChange" parameterType="com.ems902.Entity.CourseChange">
+        insert into ems_db.`course-change`(cId, reason, old_week, old_day, old_time, new_week, new_day, new_time, tId, old_place, new_place,status)
+        VALUES(#{cId},#{reason},#{old_week},#{old_day},#{old_time},#{new_week},#{new_day},#{new_time},#{tId},#{old_place},#{new_place},#{status})
+    </insert>
+
+    <!--删除调课停课申请-->
+    <delete id="deleteCourseChange" parameterType="int">
+        delete from ems_db.`course-change`
+        where changeId=#{changeId}
+    </delete>
+
+    <!--查找教师所有的调课停课申请-->
+    <select id="queryCourseChange" parameterType="int" resultType="com.ems902.Entity.CourseChange">
+        select *
+        from ems_db.`course-change`
+        where tId=#{tId}
+    </select>
+
+    <select id="queryCourseChangeByStatus" parameterType="int" resultType="com.ems902.Entity.CourseChange">
+        select * from ems_db.`course-change`
+        where status = #{status}
+    </select>
+
+    <select id="querySchoolCourseChangeByStatus" parameterType="map" resultType="com.ems902.Entity.CourseChange">
+        select * from ems_db.`course-change`
+        where status = #{status} and tId = #{tId}
+    </select>
+
+    <update id="updateCourseChangeStatus" parameterType="map">
+        update ems_db.`course-change` set status = #{status} where changeId = #{changeId}
+    </update>
+
+    <select id="queryTeaByIns" parameterType="java.lang.String" resultType="com.ems902.Entity.Teacher">
+        select * from ems_db.teacher where Ins = #{Ins}
+    </select>
+
+    <select id="queryCourseChangeByTeaId" parameterType="int" resultType="com.ems902.Entity.CourseChange">
+        select * from ems_db.`course-change` where tId = #{tId}
+    </select>
+
+    <!--//////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////-->
+
+    <!--AdminDao-->
+
+
+    <insert id="addAdmin" parameterType="com.ems902.Entity.Admin">
+        insert into ems_db.admin (adminId, adminSchool) values (#{adminId}, #{adminSchool})
+    </insert>
+
+    <delete id="deleteAdminById" parameterType="int">
+        delete from ems_db.admin where adminId = #{adminId}
+    </delete>
+
+    <update id="updateAdminInfo" parameterType="com.ems902.Entity.Admin">
+        update ems_db.admin set adminId = #{adminId}, adminSchool = #{adminSchool}
+    </update>
+
+    <select id="selectAdminById" parameterType="int" resultType="com.ems902.Entity.Admin">
+        select * from ems_db.admin where adminId = #{adminId}
+    </select>
+
+    <select id="selectAdminsByAdminId" parameterType="int" resultType="com.ems902.Entity.Admin">
+        select * from ems_db.admin where adminId = #{adminId}
+    </select>
+
+    <select id="queryAllAdmins" resultType="com.ems902.Entity.Admin">
+        select * from ems_db.admin
+    </select>
+
+    <select id="selectCourseIdByAdminId" parameterType="int" resultType="com.ems902.Entity.AdminCourse">
+        select * from ems_db.`admin-course` where adminId = #{adminId}
+    </select>
+
+    <select id="querycNameBycId" parameterType="int" resultType="java.lang.String">
+        select cName from course
+        where cId=#{cId};
+    </select>
+
+    <select id="selectCourseIdByName" parameterType="java.lang.String" resultType="int">
+        select * from ems_db.`admin-course` where cName = #{cName}
+    </select>
+
+    <!--//////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////-->
+
+    <!--ClassroomDao-->
+    <select id="getCourseIdByRoomId" parameterType="int" resultType="int">
+        select cId from ems_db.`course-classroom` where `roomId`  = #{roomId}
+    </select>
+
+    <select id="getRoomIdByCourseId" parameterType="int" resultType="com.ems902.Entity.CourseClassroom">
+        select roomId from ems_db.`course-classroom` where `cId`  = #{cId}
+    </select>
+
+    <insert id="addCourseAndRoom" parameterType="com.ems902.Entity.CourseClassroom">
+        insert into ems_db.`course-classroom` (ccId, roomId, cId) values (#{ccId}, #{roomId}, #{cId})
+    </insert>
+
+    <delete id="deleteCourseAndRoom" parameterType="com.ems902.Entity.CourseClassroom">
+        delete from ems_db.`course-classroom` where ccId = #{ccId}
+    </delete>
+
+    <update id="updateCourseAndRoom" parameterType="com.ems902.Entity.CourseClassroom">
+        update ems_db.`course-classroom` set ccId = #{ccId}, roomId = #{roomId}, cId = #{cId}
+    </update>
+
+    <insert id="addClassroom" parameterType="com.ems902.Entity.Classroom">
+        insert into ems_db.classroom(place, week, day, time, capacity) values (#{place}, #{week}, #{day}, #{time}, #{capacity})
+    </insert>
+
+    <delete id="deleteClassroom" parameterType="com.ems902.Entity.Classroom">
+        delete from ems_db.classroom where roomId = #{roomId}
+    </delete>
+
+    <update id="updateClassroomInfo" parameterType="com.ems902.Entity.Classroom">
+        update ems_db.classroom set roomId = #{roomId}, place = #{place}, week = #{week}, day = #{day},time =  #{time}, capacity = #{capacity}
+        where roomId = #{roomID}
+    </update>
+
+    <select id="selectClassroomById"  parameterType="int" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where roomId = #{roomId}
+    </select>
+
+    <select id="selectClassroomByPlace" parameterType="java.lang.String" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where place = #{place}
+    </select>
+
+    <select id="selectClassroomByWeek" parameterType="int" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where week = #{week}
+    </select>
+
+    <select id="selectClassroomByDay" parameterType="int" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where day = #{day}
+    </select>
+
+    <select id="selectClassroomByTime" parameterType="int" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where time = #{time}
+    </select>
+
+    <select id="selectClassroomByCapacity" parameterType="int" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where capacity = #{capacity}
+    </select>
+
+    <select id="selectClassroomByMap" parameterType="map" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom where week = #{week} and day = #{day} and time = #{time} and place = #{place}
+    </select>
+
+
+    <!--TrainingProgramDao-->
+    <insert id="setTrainingProgram" parameterType="com.ems902.Entity.TrainingProgram" >
+        insert into ems_db.`trainingprogram` (programId,major,admission,lengthOfSchooling,lessonList)
+        values (#{programId},#{major},#{admission},#{lengthOfSchooling},#{lessonList})
+    </insert>
+
+    <update id="updateTrainingProgram" parameterType="map" >
+        update ems_db.trainingprogram set lessonList = #{lessonList} where major = #{major}
+    </update>
+
+    <select id="getTrainingProgramByMajor" parameterType="java.lang.String" resultType="com.ems902.Entity.TrainingProgram">
+        select * from ems_db.trainingprogram where major = #{major}
+    </select>
+
+    <select id="getAllTrainingProgram" resultType="com.ems902.Entity.TrainingProgram">
+        select * from ems_db.trainingprogram
+    </select>
+
+    <delete id="deleteTrainingProgramByMajor" parameterType="java.lang.String">
+        delete from ems_db.trainingprogram where major = #{major}
+    </delete>
+
+
+    <!--lesson dao-->
+    <insert id="addLesson" parameterType="com.ems902.Entity.Lesson">
+        insert into ems_db.lesson (lessonName, lessonSchool, cType, grade, semester, credit, startweek, endweek)
+        values (#{lessonName}, #{lessonSchool}, #{cType}, #{grade}, #{semester}, #{credit}, #{startweek}, #{endweek})
+    </insert>
+
+    <update id="updateLessonByName" parameterType="java.lang.String">
+        update ems_db.lesson where lessonName = #{lessonName}
+    </update>
+
+    <select id="selectLessonByName" parameterType="java.lang.String" resultType="com.ems902.Entity.Lesson">
+        select * from ems_db.lesson where lessonName = #{lessonName}
+    </select>
+
+    <select id="selectLessonBySchool" parameterType="java.lang.String" resultType="com.ems902.Entity.Lesson">
+        select * from ems_db.lesson where lessonSchool = #{lessonSchool}
+    </select>
+
+    <select id="selectAllLesson" resultType="com.ems902.Entity.Lesson">
+        select * from ems_db.lesson
+    </select>
+
+    <update id="updateCourseInfoByMap" parameterType="map">
+        update ems_db.course set place = #{place}, day = #{day}, time = #{time}, startweek = #{startweek}, endweek = #{endweek}
+        where cId = #{cId}
+    </update>
+
+    <select id="selectClassroomInfoByMap" parameterType="map" resultType="com.ems902.Entity.Classroom">
+        select * from ems_db.classroom
+        where place = #{place} and week = #{week} and day = #{day} and time = #{time}
+    </select>
+
+
+</mapper>

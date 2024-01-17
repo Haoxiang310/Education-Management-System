@@ -1,0 +1,608 @@
+POST http://localhost:8080/teacherIndex/changeCourseTime?cId=3&tId=1&reason=ill&old_week=7&old_day=1&old_time=1&new_week=8&new_day=1&new_time=2&old_place=if202&new_place=if203
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-17T093303.200.txt
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime?cId=3&tId=1&reason=ill&old_week=7&old_day=1&old_time=1&new_week=8&new_day=1&new_time=2&old_place=if202&new_place=if203
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-17T093257.404.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"new_place":"if203"
+ }
+
+<> 2021-06-17T093234.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime?cId=3&tId=1&reason=ill&old_week=7&old_day=1&old_time=1&new_week=8&new_day=1&new_time=2&old_place=if202&new_place=if203
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-17T093111.200.txt
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"new_place":"if203"
+ }
+
+<> 2021-06-17T093052.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092937.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime?cId=3
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-17T092930.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-17T092919.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092719.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092618.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092551.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime/post
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092541.404.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092509.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092436.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092423.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{cId:3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092058.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T092043.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":"3",
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091924.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":"3",
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091913.404.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":"3",
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091854.405.html
+
+###
+
+POST http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":"3",
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091843.405.html
+
+###
+
+GET http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":"3",
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091821.400.html
+
+###
+
+GET http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":3,
+ "tId":1,
+ "reason":"ill",
+ "old_week":7,
+ "old_day":1,
+ "old_time":1,
+ "new_week":8,
+"new_day":1,
+"new_time":2,
+"old_place":"if202",
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091802.400.html
+
+###
+
+GET http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"cId":3;
+ "tId":1;
+ "reason":"ill";
+ "old_week":7;
+ "old_day":1;
+ "old_time":1;
+ "new_week":8;
+"new_day":1;
+"new_time":2;
+"old_place":"if202";
+"old_time":"if203"
+ }
+
+<> 2021-06-17T091632.400.html
+
+###
+
+GET http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+{"cId": 3;
+ "tId": 1;
+ "reason": "ill";
+ "old_week": 7;
+ "old_day": 1;
+ "old_time": 1;
+ "new_week": 8;
+"new_day": 1;
+"new_time": 2;
+"old_place": "if202";
+"old_time": "if203"
+ }:
+
+<> 2021-06-17T091620.400.html
+
+###
+
+GET http://localhost:8080/teacherIndex/changeCourseTime
+Accept: */*
+Cache-Control: no-cache
+{"cId": 3,
+ "tId": 1,
+ "reason": "ill"
+ "old_week": 7,
+ "old_day": 1,
+ "old_time": 1,
+ "new_week": 8
+"new_day": 1
+"new_time": 2
+"old_place": "if202"
+"old_time": "if203"
+ }:
+
+<> 2021-06-17T091544.400.html
+
+###
+
+GET localhost:8080/studentIndex/checkAllCourses
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET localhost:8080/studentIndex/checkAllCourses?tId=1
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+###
+
+GET http://222.28.46.89:8080/EduManagementSystem_war/teacherIndex/queryChangeCourseTime?tId=1
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T080252.200.txt
+
+###
+
+POST http://222.28.46.89:8080/EduManagementSystem_war?changeId=4
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime?changeId=4
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T063303.200.txt
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime?changeId=4
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":"4"}
+
+<> 2021-06-15T063256.200.txt
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":"4"}
+
+<> 2021-06-15T063231.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T063118.400.html
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T063022.405.html
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T063001.405.html
+
+###
+
+POST http://localhost:8080/teacherIndex/deleteChangeCourseTime
+Accept: */*
+Cache-Control: no-cache
+
+{"changeId":4}
+
+<> 2021-06-15T062945.405.html
+
+###
+
+GET http://localhost:8080/teacherIndex/deleteChangeCourseTime?changeId=2
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-06-15T062753.200.txt
+
+###
+
